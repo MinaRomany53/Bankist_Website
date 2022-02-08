@@ -208,7 +208,7 @@ p {
 .feature {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 .feature img {
   width: 100%;

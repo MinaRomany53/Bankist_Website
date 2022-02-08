@@ -119,7 +119,6 @@ nav.addEventListener("mouseout", handleLinkHover.bind(1));
 // Implemetn it using The Intersection Observer API.
 const landing = document.querySelector(".landing");
 const header = document.querySelector(".header");
-const headerHeight = header.getBoundingClientRect().height;
 
 const stickyNav = function (entries) {
   entries.forEach((entry) => {
@@ -135,7 +134,6 @@ const stickyNav = function (entries) {
 const obsOptions = {
   root: null,
   threshold: 0,
-  rootMargin: `-${headerHeight}px`,
 };
 
 const landingObserver = new IntersectionObserver(stickyNav, obsOptions);
@@ -173,8 +171,47 @@ allSections.forEach((sec) => {
   sec.classList.add("section--hidden");
   sectionObserver.observe(sec);
 });
-
 /*---------- End Revealing section on scroll ----------*/
+
+///////////////////////////////////////////////
+////////////////////////////////////////////
+/////////////////////////////////////////
+//////////////////////////////////////
+
+/* Start Lazy loading Images (Important for Website Performance)*/
+//Implemetn it using The Intersection Observer API.
+// features__container
+// feature
+// img
+// 1 - Replace src attribute with data-src
+// 2 - remove lazy-img class
+
+const featureImages = document.querySelectorAll(".feature img");
+
+const imageLoading = function (entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      // Replace src attribute with data-src
+      const newImageUrl = entry.target.dataset.src;
+      entry.target.setAttribute("src", newImageUrl);
+      // remove lazy-img class after complete loading image (work done behind the scenes)
+      entry.target.addEventListener("load", function () {
+        entry.target.classList.remove("lazy-img");
+      });
+      observer.unobserve(entry.target);
+    }
+  });
+};
+const obsOptions_3 = {
+  root: null,
+  threshold: 1,
+};
+
+const Imagesobserver = new IntersectionObserver(imageLoading, obsOptions_3);
+featureImages.forEach((image) => {
+  Imagesobserver.observe(image);
+});
+/* End Lazy loading Images*/
 
 ///////////////////////////////////////////////
 ////////////////////////////////////////////
@@ -226,10 +263,6 @@ tabsContainer.addEventListener("click", (e) => {
 ////////////////////////////////////////////
 /////////////////////////////////////////
 //////////////////////////////////////
-
-/* Start Lazy loading Images (Important for Website Performance)*/
-
-/* End Lazy loading Images*/
 
 ///////////////////////////////////////////////
 ////////////////////////////////////////////
