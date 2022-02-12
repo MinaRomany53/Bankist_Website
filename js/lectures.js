@@ -41,7 +41,7 @@ rowHtml => Is a String variable stores Html code
 const message = document.createElement("div");
 message.classList.add("cookie-message");
 message.innerHTML =
-  'We use cookies for improved functionality and analytics.  <button class="btn btn__cookie--close">Got it!</button>'; // or use (.textContent)
+  'We use cookies for improved functionality and analytics.  <button class="btn btn__cookie--close">Got it!</button>';
 console.log(message);
 const headerElement = document.querySelector(".header");
 // headerElement.append(message); // insert this new elemetn at bottom
@@ -257,6 +257,62 @@ observer.observe(section_1);
 ////////////////////////////////////////////
 /////////////////////////////////////////
 //////////////////////////////////////
+///////////////////////////////////////////////
+////////////////////////////////////////////
+/////////////////////////////////////////
+//////////////////////////////////////
+
+// Lifecycle DOM Events
+
+// After only html and JS loaded
+// document.addEventListener("DOMContentLoaded", (e) => {
+//   console.log(`HTML AND JS Files Loaded Successfully `);
+//   console.log(e);
+// });
+
+// After All Files Loaded (images , css files and other )
+// document.addEventListener("load", (e) => {
+//   console.log("All Page Files are Loaded successfully ");
+//   console.log(e);
+// });
+
+// Ask user if he was sure to leave this page
+// document.addEventListener("beforeunload", (e) => {
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = " ";
+// });
+
+///////////////////////////////////////////////
+////////////////////////////////////////////
+/////////////////////////////////////////
+//////////////////////////////////////
+///////////////////////////////////////////////
+////////////////////////////////////////////
+/////////////////////////////////////////
+//////////////////////////////////////
+///////////////////////////////////////////////
+////////////////////////////////////////////
+/////////////////////////////////////////
+//////////////////////////////////////
+
+// Different Ways to loade a JS file into HTML (PDF page 149)
+/*
+
+1 - Regular way => at the end of <body> without any attribute
+    - Scripts are fetched and executed after the HTML is completely parsed
+    - Use if you need to support old browsers
+
+2 - using Async attributes in <head>
+    - Scripts are fetched asynchronously and executed immediately
+    - Use for 3rd-party scripts where order doesn’t matter (e.g. Google Analytics)
+    - use async with any code that my code will not interact with 
+
+3 - using Defer attributes in <head> (The Best Technique)
+    - Scripts are fetched asynchronously andexecuted after the HTML is completely parsed
+    - This is overall the best solution! Use for your own scripts, and when order matters (e.g. including a library)
+
+*/
 ///////////////////////////////////////////////
 ////////////////////////////////////////////
 /////////////////////////////////////////

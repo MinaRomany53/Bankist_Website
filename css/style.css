@@ -87,8 +87,8 @@ p {
 /* End General Elements*/
 
 /*Start Header*/
-.header {
-}
+/* .header {
+} */
 /* header and stickly class at the same time */
 .header.sticky {
   position: fixed;
@@ -100,12 +100,26 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
+@media (max-width: 991px) {
+  .nav {
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 1rem;
+  }
+}
+
 .nav__logo {
   height: 9rem;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 991px) {
+  .nav__logo {
+    height: 4rem;
+  }
 }
 .nav__logo .logo {
   width: 15rem;
@@ -121,6 +135,12 @@ p {
   align-items: center;
   margin-left: 5rem;
 }
+@media (max-width: 991px) {
+  .nav__item {
+    height: 5rem;
+    margin-left: 3rem;
+  }
+}
 .nav__link {
   display: block;
   text-decoration: none;
@@ -128,6 +148,11 @@ p {
   font-weight: 400;
   color: inherit;
   transition: all 0.5s;
+}
+@media (max-width: 991px) {
+  .nav__link {
+    font-size: 1.4rem;
+  }
 }
 .nav__link--btn:link,
 .nav__link--btn:visited {
@@ -137,6 +162,12 @@ p {
   color: #222;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(94, 197, 118, 0.4);
+}
+@media (max-width: 991px) {
+  .nav__link--btn:link,
+  .nav__link--btn:visited {
+    padding: 0.2rem 1.2rem;
+  }
 }
 .nav__link--btn:hover,
 .nav__link--btn:active {
@@ -154,13 +185,30 @@ p {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 991px) {
+  .landing {
+    height: calc(100vh - 10rem);
+  }
+}
 .landing .container {
   display: flex;
   align-items: center;
 }
+@media (max-width: 991px) {
+  .landing .container {
+    text-align: center;
+    padding-bottom: 7rem;
+  }
+}
 .landing__title {
   flex: 1;
   max-width: 80rem;
+}
+@media (max-width: 991px) {
+  .landing__title {
+    max-width: 50rem;
+    margin: 0 auto;
+  }
 }
 .landing__title h1 {
   font-size: 5.4rem;
@@ -191,6 +239,11 @@ p {
   max-width: 100%;
   height: 400px;
   width: 40rem;
+}
+@media (max-width: 991px) {
+  .landing__image img {
+    display: none;
+  }
 }
 /*End Landing*/
 
@@ -349,14 +402,6 @@ p {
   justify-content: center;
   transition: transform 1s;
 }
-.slide--1 {
-}
-.slide--2 {
-  transform: translateX(800rem);
-}
-.slide--3 {
-  transform: translateX(1200rem);
-}
 .slider__btn {
   position: absolute;
   top: 50%;
@@ -400,7 +445,7 @@ p {
 .dots .dot:last-child {
   margin: 0;
 }
-.dots .active {
+.dot.dot__active {
   background-color: var(--color-primary-darker);
   opacity: 1;
 }
