@@ -7,5 +7,5 @@ Not Responsive
 ```
 ```
 In this Small Project i have been learned how to use (DOM API) to create, modify and delete HTML elements;
-set styles, classes and attributes; and listen and respond to events, using JavaScript
+set styles, classes and attributes , listen and respond to events, using JavaScript
 ```
